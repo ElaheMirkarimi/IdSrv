@@ -44,7 +44,7 @@ namespace IdentityServerAspNetIdentity
                     PostLogoutRedirectUris = { "https://localhost:44354/signout-callback-oidc" },
 
                     AllowOfflineAccess = true,
-                    AllowedScopes = { "openid", "profile", "api1" }
+                    AllowedScopes = { "openid", "profile"}
                 },
 
                 // client credentials flow client
