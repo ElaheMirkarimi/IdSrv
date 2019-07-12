@@ -49,8 +49,9 @@ namespace MvcApp
                 options.RequireHttpsMetadata = false;
                 options.ClientId = "mvc";
                 options.SaveTokens = true;
-                options.ClientSecret = "49C1A7E1-0C79-4A89-A3D6-A37998FB86B0".Sha256();
-            });        }
+                options.ClientSecret = "secret".Sha256();//49C1A7E1-0C79-4A89-A3D6-A37998FB86B0
+            });
+        }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
