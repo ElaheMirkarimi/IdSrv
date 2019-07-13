@@ -36,8 +36,6 @@ namespace IdentityServerAspNetIdentity
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 
-            services.AddMvc().SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_1);
-
             services.Configure<IISOptions>(iis =>
             {
                 iis.AuthenticationDisplayName = "Windows";
@@ -66,12 +64,12 @@ namespace IdentityServerAspNetIdentity
             }
 
             services.AddAuthentication()
-                //.AddFacebook(options => 
-                //{
-                //    options.SignInScheme = IdentityServerConstants.ExternalCookieAuthenticationScheme;
-                //    options.ClientId = "mvc";
-                //    options.ClientSecret = "49C1A7E1-0C79-4A89-A3D6-A37998FB86B0".Sha256();//511536EF-F270-4058-80CA-1C89C192F69A
-                //})
+                .AddFacebook(options =>
+                {
+                    //options.SignInScheme = IdentityServerConstants.ExternalCookieAuthenticationScheme;
+                    options.ClientId = "2076321876003453";
+                    options.AppSecret = "58279e95031b89a4ef729d0f60d0b1c4";
+                })
                 .AddGoogle(options =>
                 {
                     // register your IdentityServer with Google at https://console.developers.google.com
@@ -80,6 +78,7 @@ namespace IdentityServerAspNetIdentity
                     options.ClientId = "20540294921-ln852i0bcp15bfup4spmfrupg81c8as7.apps.googleusercontent.com";
                     options.ClientSecret = "oa5Jj3EC6JZIKeF4yPAqLPwr";
                 });
+            services.AddMvc().SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_1);
         }
 
         public void Configure(IApplicationBuilder app)
