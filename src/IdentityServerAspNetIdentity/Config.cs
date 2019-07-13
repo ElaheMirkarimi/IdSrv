@@ -36,15 +36,16 @@ namespace IdentityServerAspNetIdentity
                     ClientId = "mvc",
                     ClientName = "MVC Client",
 
-                    AllowedGrantTypes = GrantTypes.Implicit,//.HybridAndClientCredentials,
+                    AllowedGrantTypes = GrantTypes.Hybrid,
                     ClientSecrets = { new Secret("secret".Sha256()) },//49C1A7E1-0C79-4A89-A3D6-A37998FB86B0
 
                     RedirectUris = { "https://localhost:44354/signin-oidc" },
                     FrontChannelLogoutUri = "https://localhost:44354/signout-oidc",
                     PostLogoutRedirectUris = { "https://localhost:44354/signout-callback-oidc" },
-
+                    
                     AllowOfflineAccess = true,
-                    AllowedScopes = { "openid", "profile"}
+                    AllowAccessTokensViaBrowser = true,
+                    AllowedScopes = { "openid", "profile", "api1"},
                 },
 
                 // client credentials flow client

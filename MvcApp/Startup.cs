@@ -50,6 +50,11 @@ namespace MvcApp
                 options.ClientId = "mvc";
                 options.SaveTokens = true;
                 options.ClientSecret = "secret".Sha256();//49C1A7E1-0C79-4A89-A3D6-A37998FB86B0
+                options.Scope.Add("openid");
+                options.Scope.Add("profile");
+                options.GetClaimsFromUserInfoEndpoint = true;
+                options.ResponseType = "code id_token";
+                //options.SignedOutRedirectUri = "";
             });
         }
 
